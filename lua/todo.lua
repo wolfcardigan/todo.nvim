@@ -5,6 +5,7 @@ local map = vim.keymap.set
 
 function M.todoopen()
 	cmd(":vs todo.md")
+	cmd(":checktime %")
 end
 
 function M.todoclose()
@@ -13,7 +14,6 @@ end
 
 function M.todoaddtask()
 	cmd(":!echo '- [] x' >> todo.md")
-	cmd(":vs todo.md")
 	cmd(":checktime %")
 end
 

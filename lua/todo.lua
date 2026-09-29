@@ -1,6 +1,7 @@
 local M = {}
 local cmd = vim.cmd
 local usercmd = vim.api.nvim_create_user_command
+local map = vim.keymap.set
 
 function M.todoopen()
 	cmd(":vs todo.md")
@@ -22,13 +23,11 @@ function M.setup(opts)
 	usercmd("TodoOpen", M.todoopen, {})
 	usercmd("TodoClose", M.todoclose, {})
 	usercmd("TodoAddTask", M.todoaddtask, {})
-
-	local map = vim.keymap.set
 	local close_keymap = "<A-c>"
 	local open_keymap = "<A-g>"
 	local add_task_keymap = "<A-t>"
 
-	map("n", open_keymap, M.todopen, {
+	map("n", open_keymap, M.todoopen, {
 		desc = "Open Todo",
 		silent = true,
 	})

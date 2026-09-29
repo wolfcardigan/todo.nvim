@@ -12,8 +12,8 @@ function M.todoclose()
 end
 
 function M.todoaddtask()
-	cmd(":vs todo.md")
 	cmd(":!echo '- [] x' >> todo.md")
+	cmd(":vs todo.md")
 	cmd(":checktime %")
 end
 
